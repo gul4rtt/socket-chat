@@ -3,7 +3,12 @@
 import socket
 import sys
 
+if len(sys.argv) != 3:
+    print("modo de uso: python3 server.py <port> <chave de deslocamento>")
+    exit()
+
 alphabet = ("abcdefghijklmnopqrstuvwxyz")
+key = sys.argv[2]
 
 def encrypt(plaintext, key):
     string = ""
@@ -43,7 +48,7 @@ client, address = server.accept()
 
 while True:
     msg_from = client.recv(2048).decode('utf-8')
-    msg_from = decrypt(msg_from.lower(), 10)
+    msg_from = decrypt(msg_from.lower(), key)
     if msg_from == 'bye':
         break
     else:
@@ -51,7 +56,7 @@ while True:
         msg = str(input("You: "))
         if msg == 'bye':
             break
-        msg = encrypt(msg.lower(), 10)
+        msg = encrypt(msg.lower(), key)
         client.send(msg.encode('utf-8'))
 
 client.close()
