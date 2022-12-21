@@ -1,16 +1,16 @@
 # Socket Chat
 
-esse é um simples chat socket que criptografa os dados utilizando a Cifra de César
+Esse é um simples chat socket que criptografa os dados utilizando a Cifra de César
 
 ## Requisitos
 
-- python3
+- Python 3.0
 
 ## Modo de uso
 
-python3 server.py <port> <ROTN>
+> python3 server.py <port> <ROTN>
 
-python3 cliente.py <port> <ROTN>
+> python3 cliente.py <port> <ROTN>
 
 onde:
 
